@@ -1,0 +1,159 @@
+Interface:
+
+<Interface>:
+    orientation:"vertical"
+    MDToolbar:
+        title: "Image Editor"
+        pos_hint: {"top":1}
+        right_action_items: [["folder", lambda x: root.file_opener(), "Select Image"]]
+    MDBoxLayout:
+        padding: "10dp"
+        spacing: "10dp"
+        MDBoxLayout:
+            Image:
+                id: img_placeholder
+                source: "Image.png"
+        MDFloatLayout:
+            MDLabel:
+                text: "Properties"
+                adaptive_height: True
+                pos_hint: {"center_x":.5}
+                pos: 1, "450dp"
+                halign: "center"
+                font_name: "Archivo-Black.ttf"
+                font_size: "60sp"
+            #Width/Height
+            MDBoxLayout:
+                adaptive_height: True
+                pos_hint: {"center_x":.5}
+                pos: 1, "310dp"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    adaptive_height: True
+                    padding: "20dp"
+                    spacing: "20dp"
+                    MDLabel:
+                        text: "Width"
+                        font_name: "Archivo-Regular.ttf"
+                        font_size: "30sp"
+                        halign: "center"
+                    MDTextField:
+                        id: width
+                        size_hint_x: None
+                        width: "200dp"
+                        hint_text: "HERE"
+                        helper_text: "Please enter values in pixels."
+                        helper_text_mode: "on_focus"
+                        mode: "rectangle"
+                MDBoxLayout:
+                    orientation: "vertical"
+                    adaptive_height: True
+                    padding: "20dp"
+                    spacing: "20dp"
+                    MDLabel:
+                        text: "Height"
+                        font_name: "Archivo-Regular.ttf"
+                        font_size: "30sp"
+                        halign: "center"
+                    MDTextField:
+                        id: height
+                        size_hint_x: None
+                        width: "200dp"
+                        hint_text: "HERE"
+                        helper_text: "Please enter values in pixels."
+                        helper_text_mode: "on_focus"
+                        mode: "rectangle"
+            #Rotation Section
+            MDBoxLayout:
+                adaptive_height:True
+                pos_hint: {"center_x":.5}
+                pos: 1, "240dp"
+                padding: "20dp"
+                spacing: "20dp"
+                MDLabel:
+                    text: "Rotation"
+                    font_name: "Archivo-Regular.ttf"
+                    font_size: "30sp"
+                    size_hint: .5, 1
+                MDTextField:
+                    id: rotate
+                    hint_text: "Degree"
+                    mode: "rectangle"
+            #Effects Section
+
+            MDLabel:
+                text: "Effects"
+                pos_hint:{"center_x":.5}
+                pos: 1, "210dp"
+                adaptive_size:  True
+                font_name: "Archivo-Regular.ttf"
+                font_size: "30sp"
+            MDBoxLayout:
+                padding:[40,0,0,0]
+                orientation: "vertical"
+                adaptive_height: True
+                pos_hint:{"center_x":.5}
+                pos: 1, "100dp"
+                MDBoxLayout:
+                    adaptive_height: True
+                    MDCheckbox:
+                        id: blur
+                        size_hint: None,None
+                        size: dp(24),dp(24)
+                        group: "selection"
+                    MDLabel:
+                        text: "Blur"
+                        font_name: "Archivo-Thin.ttf"
+                        font_size: "18sp"
+                        size_hint:None,None
+                        size: "100dp","24dp"
+                MDBoxLayout:
+                    adaptive_height: True
+                    MDCheckbox:
+                        id: contour
+                        size_hint: None,None
+                        size: dp(24),dp(24)
+                        group: "selection"
+                    MDLabel:
+                        text: "Countour"
+                        font_name: "Archivo-Thin.ttf"
+                        font_size: "18sp"
+                        size_hint:None,None
+                        size: "100dp","24dp"
+                MDBoxLayout:
+                    adaptive_height: True
+                    MDCheckbox:
+                        id: detail
+                        size_hint: None,None
+                        size: dp(24),dp(24)
+                        group: "selection"
+                    MDLabel:
+                        text: "Detail"
+                        font_name: "Archivo-Thin.ttf"
+                        font_size: "18sp"
+                        size_hint:None,None
+                        size: "100dp","24dp"
+                MDBoxLayout:
+                    adaptive_height: True
+                    MDCheckbox:
+                        id: find_edges
+                        size_hint: None,None
+                        size: dp(24),dp(24)
+                        group: "selection"
+                    MDLabel:
+                        text: "Find Edges"
+                        font_name: "Archivo-Thin.ttf"
+                        font_size: "18sp"
+                        size_hint:None,None
+                        size: "100dp","24dp"
+            MDBoxLayout:
+                adaptive_size: True
+                spacing: "5dp"
+                pos_hint: {"center_x":.5}
+                pos:1, dp(20)
+                MDRoundFlatButton:
+                    text: "APPLY"
+                    on_press: root.editor()
+                MDFillRoundFlatButton:
+                    text: "EXPORT"
+                    on_press:root.exporting()
